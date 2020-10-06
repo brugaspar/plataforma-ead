@@ -1,18 +1,11 @@
-const Hapi = require("@hapi/hapi");
+require("dotenv").config();
+require("./services/mongo.service");
+
+const server = require("./server");
+const routes = require("./routes");
 
 const init = async () => {
-  const server = Hapi.server({
-    port: 3000,
-    host: "localhost"
-  });
-
-  server.route({
-    method: "GET",
-    path: "/",
-    handler: (request, h) => {
-      return "Hello World!";
-    }
-  });
+  server.route(routes);
 
   await server.start().then(console.log("\nServer running on %s\n", server.info.uri));
 };
