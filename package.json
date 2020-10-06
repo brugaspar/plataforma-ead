@@ -1,0 +1,17 @@
+{
+  "name": "api-ead",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brugaspar/plataforma-ead.git",
+  "author": "Bruno Gaspar <bruninhoogaspar@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.0.1"
+  }
+}
