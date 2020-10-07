@@ -1,22 +1,25 @@
 const boom = require("@hapi/boom");
 
-const { findByEmail } = require("../repositories/user.repository");
-const hash = require("../utils/hash");
+const authenticate = require("../auth/authenticate.auth");
+const { ERR_USER_NOT_FOUND, ERR_INVALID_PASSWORD } = require("../utils/errorTypes");
 
 const login = async (req, h) => {
-  const user = await findByEmail(req.payload.email);
+  const { email, password } = req.payload;
 
-  if(!user) {
-    throw boom.notFound("User does not exists");
+  try {
+    const logged = await authenticate.login(email, password);
+    
+    return h.response(logged).code(200);
+  } catch(err) {
+    switch(err.message) {
+      case ERR_USER_NOT_FOUND:
+        throw boom.notFound("User does not exists");
+      case ERR_INVALID_PASSWORD:
+        throw boom.badData("Invalid email or password");
+      default:
+        throw boom.badImplementation(err);
+    }
   }
-
-  const isValidPassword = await hash.compare(req.payload.password, user.password);
-
-  if(!isValidPassword) {
-    throw boom.badData("Invalid e-mail or password");
-  }
-
-  return h.response({ message: "Successfully logged in" }).code(200);
 };
 
 module.exports = {
