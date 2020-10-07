@@ -31,7 +31,7 @@
   dependencies:
     "@hapi/hoek" "9.x.x"
 
-"@hapi/boom@9.x.x":
+"@hapi/boom@9.x.x", "@hapi/boom@^9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-9.1.0.tgz#0d9517657a56ff1e0b42d0aca9da1b37706fec56"
   integrity sha512-4nZmpp4tXbm162LaZT45P7F7sgiem8dwAh2vHWT6XX24dozNjGMg6BvKCRvtCUcmcXqeMIUqWN8Rc5X8yKuROQ==
@@ -333,6 +333,11 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+
+bcryptjs@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+  integrity sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
 
 binary-extensions@^2.0.0:
   version "2.1.0"
