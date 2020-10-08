@@ -1,1 +1,3 @@
 # Projeto EAD
+
+Temporáriamente parado
